@@ -82,4 +82,4 @@ jobs:
       run: helm chart export ${{secrets.ACR_USER}}.azurecr.io/brandon-courseassessment:latest --destination ./install
 
     - name: Helm Chart Install
-      run: helm upgrade --namespace ns-brandon --install --set image.tag=latest actiondemo01-api ./install/brandon-courseassessment
+      run: helm upgrade --namespace ns-brandon --install --set image.tag=latest brandon-courseassessment ./install/brandon-courseassessment
