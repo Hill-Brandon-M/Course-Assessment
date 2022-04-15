@@ -2,7 +2,7 @@ replicaCount: 2
 k8s:
   namespace: "default"
 app:
-  name: "actiondemo01-api"
+  name: "brandon-courseassessment"
 service:
   port: "5000"
 metrics:
