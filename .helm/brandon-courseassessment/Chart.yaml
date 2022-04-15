@@ -1,0 +1,7 @@
+apiVersion: v2
+name: "brandon-courseassessment"
+description: A helm chart for step 4 of the course assessment.
+
+type: application
+version: 0.0.1
+appVersion: 0.0.1
