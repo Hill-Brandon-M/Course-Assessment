@@ -27,6 +27,25 @@ jobs:
         # Container registry server url
         login-server: bcglabacr01.azurecr.io
         
-    - name: Push Image  
+    - name: Push Image to ACR
       run: docker push bcglabacr01.azurecr.io/brandon-courseassessment:latest
     
+    - name: Helm tool installer
+      uses: Azure/setup-helm@v1
+      with:
+        # Version of helm
+        version: 3.3.1
+
+    - name: Login to ACR using HELM
+      run: |
+        echo $ | helm registry login bcglabacr01.azurecr.io --username bcglabacr01 --password vQign8/X5HO3XhfXFWFW05CtHqpYV+dM
+
+    - name: Package the helm chart
+      run: helm package ./helm/brandon-courseassessment
+
+    - name: save helm chart to local registry
+      run: |
+       helm chart save ./brandon-courseassessment-0.0.1.tgz bcglabacr01.azurecr.io/brandon-courseassessment:latest
+
+    - name: Helm chart Push
+      run: helm chart push bcglabacr01.azurecr.io/brandon-courseassessment:latest
