@@ -30,6 +30,9 @@ jobs:
     - name: Push Image to ACR
       run: docker push bcglabacr01.azurecr.io/brandon-courseassessment:latest
     
+    - name : Set Helm Env Var
+      run : export HELM_EXPERIMENTAL_OCI=1 
+    
     - name: Helm tool installer
       uses: Azure/setup-helm@v1
       with:
